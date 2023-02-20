@@ -1,23 +1,33 @@
-import logo from './logo.svg';
+import React, { useEffect } from 'react';
 import './App.css';
+import * as dotenv from 'dotenv';
+import alanBtn from '@alan-ai/alan-sdk-web';
+import wordsToNumbers from 'words-to-numbers';
+
+dotenv.config();
+
+// const configuration = new Configuration({
+//     alanKey: process.env.API_KEY ,
+// });
+
+const alanKey = process.env.REACT_APP_API_KEY ;
 
 function App() {
+
+  useEffect(() => {
+    alanBtn({
+      key: alanKey,
+      onCommand: ({  }) => {
+        if (command === 'testCommand') {
+          alert('This code was executed');
+        }
+      }
+    })
+  }, [])
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+     <h1>Alan Ai news application</h1>
+      
     </div>
   );
 }

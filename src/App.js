@@ -20,14 +20,14 @@ function App() {
       onCommand: ({  }) => {
         if (command === 'testCommand') {
           alert('This code was executed');
-        }
+        }  
       }
     })
   }, [])
   return (
     <div className="App">
      <h1>Alan Ai news application</h1>
-      
+
     </div>
   );
 }
